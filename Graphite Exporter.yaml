@@ -1,0 +1,40 @@
+name: dreamy_maximilian
+services:
+  main_app:
+    cpu_shares: 10
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+    image: prom/graphite-exporter:latest
+    labels:
+      icon: https://icon.casaos.io/main/all/graphite-exporter.png
+    ports:
+      - target: 9109
+        published: "9109"
+        protocol: tcp
+      - target: 9108
+        published: "9108"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: bridge
+    privileged: false
+    container_name: ""
+    hostname: ""
+x-casaos:
+  author: self
+  category: self
+  hostname: 192.168.1.9
+  icon: https://icon.casaos.io/main/all/graphite-exporter.png
+  index: /
+  is_uncontrolled: false
+  port_map: "9108"
+  scheme: http
+  store_app_id: dreamy_maximilian
+  title:
+    custom: Graphite Exporter

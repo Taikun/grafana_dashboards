@@ -1,0 +1,38 @@
+name: uplifting_christopher
+services:
+  graphite-statsd:
+    cpu_shares: 90
+    command: []
+    container_name: graphite
+    deploy:
+      resources:
+        limits:
+          memory: 15388M
+    hostname: graphite
+    image: graphiteapp/graphite-statsd:latest
+    ports:
+      - target: 80
+        published: "80"
+        protocol: tcp
+      - target: 2003
+        published: "2003"
+        protocol: tcp
+    restart: unless-stopped
+    volumes: []
+    devices: []
+    cap_add: []
+    environment: []
+    network_mode: bridge
+    privileged: false
+x-casaos:
+  author: self
+  category: self
+  hostname: ""
+  icon: ""
+  index: /
+  is_uncontrolled: false
+  port_map: ""
+  scheme: http
+  store_app_id: uplifting_christopher
+  title:
+    custom: Graphite Carbon
